@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import Link from "next/link";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const Set_of_images = () => {
+    const router = useRouter();
+    const { set } = router.query;
     const [activeIndex, setActiveIndex] = useState(0);
+    const [imageSet, setImageSet] = useState("manchester"); // Default set to manchester
+
+    useEffect(() => {
+        if (set) {
+            setImageSet(set);
+            setActiveIndex(0); // Reset active index when set changes
+        }
+    }, [set]);
 
     const handlePrev = () => {
         setActiveIndex((prevIndex) => (prevIndex === 0 ? 4 : prevIndex - 1));
@@ -12,6 +23,11 @@ const Set_of_images = () => {
 
     const handleNext = () => {
         setActiveIndex((prevIndex) => (prevIndex === 4 ? 0 : prevIndex + 1));
+    };
+
+    const setImageSetAndResetIndex = (set) => {
+        setActiveIndex(0);
+        setImageSet(set);
     };
 
     return (
@@ -39,7 +55,7 @@ const Set_of_images = () => {
                         data-carousel-item
                     >
                         <img
-                            src={`assets/images/calebs${item}.jpg`}
+                            src={`/assets/images/${imageSet}/calebs${item}.jpg`}
                             className="block object-cover w-full h-full"
                             alt={`Slide ${item}`}
                         />
@@ -48,14 +64,14 @@ const Set_of_images = () => {
             </div>
             {/* Slider indicators */}
             <div className="z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3 rtl:space-x-reverse">
-                {[...Array(5).keys()].map((index) => (
+                {["manchester", "london", "peterborough", "oxford", "swindon"].map((set, index) => (
                     <button
                         key={index}
                         type="button"
-                        className={`w-3 h-3 rounded-full ${activeIndex === index ? 'bg-gray-800' : 'bg-white'}`}
-                        aria-current={activeIndex === index}
-                        aria-label={`Slide ${index + 1}`}
-                        onClick={() => setActiveIndex(index)}
+                        className={`w-3 h-3 rounded-full ${imageSet === set ? 'bg-gray-800' : 'bg-white'}`}
+                        aria-current={imageSet === set}
+                        aria-label={`Set ${set}`}
+                        onClick={() => setImageSetAndResetIndex(set)}
                         data-carousel-slide-to={index}
                     />
                 ))}
