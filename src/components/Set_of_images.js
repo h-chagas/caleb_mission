@@ -30,7 +30,7 @@ const Set_of_images = () => {
                     </li>
                 </ul>
             </div>
-            <div className="relative h-96 rounded-lg md:h-96 flex items-center justify-center overflow-hidden">
+            <div className="relative h-96 md:h-auto overflow-hidden">
                 {/* Render items */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, index) => (
                     <div
@@ -40,7 +40,7 @@ const Set_of_images = () => {
                     >
                         <img
                             src={`assets/images/calebs${item}.jpg`}
-                            className="block object-cover h-full w-full md:h-auto md:max-h-full"
+                            className="block object-cover w-full h-full"
                             alt={`Slide ${item}`}
                         />
                     </div>
