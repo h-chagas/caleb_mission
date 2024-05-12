@@ -35,10 +35,10 @@ const Contact = () => {
             Social media
           </h1>
           <SocialMedia />
-          <div className="my-4">
+          <div className="my-4 hidden lg:block">
             <InstagramPost />
           </div>
-          <div className="my-4">
+          <div className="my-4 hidden lg:block">
             <FacebookPost />
           </div>
         </div>
