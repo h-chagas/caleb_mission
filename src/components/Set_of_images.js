@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import Link from "next/link";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const Set_of_images = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +16,21 @@ const Set_of_images = () => {
 
     return (
         <div id="default-carousel" className="relative w-full" data-carousel="slide">
-            <div className="relative h-96 rounded-lg md:h-96">
+            <div className="py-5 mb-2 flex justify-between">
+                <Link href="/">
+                    <h1 className="text-xl opacity-0">Caleb Mission UK</h1>
+                </Link>
+
+                <ul className="flex items-center">
+                    <li>
+                        <BsFillMoonStarsFill
+                            onClick={() => setDarkMode(!darkMode)}
+                            className="cursor-pointer text-xl"
+                        />
+                    </li>
+                </ul>
+            </div>
+            <div className="relative h-96 rounded-lg md:h-96 flex items-center justify-center overflow-hidden">
                 {/* Render items */}
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, index) => (
                     <div
@@ -24,7 +40,7 @@ const Set_of_images = () => {
                     >
                         <img
                             src={`assets/images/calebs${item}.jpg`}
-                            className="absolute block object-cover w-full -translate-x-1/2 top-1/2 left-1/2"
+                            className="block object-cover h-full w-full md:h-auto md:max-h-full"
                             alt={`Slide ${item}`}
                         />
                     </div>
@@ -47,16 +63,16 @@ const Set_of_images = () => {
             {/* Slider controls */}
             <button
                 type="button"
-                className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="absolute top-1/2 z-30 left-3 px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
                 onClick={handlePrev}
                 data-carousel-prev
             >
                 {/* Previous button icon */}
-                <FaArrowAltCircleLeft className=" bg-white text-2xl" />
+                <FaArrowAltCircleLeft className="bg-white text-2xl" />
             </button>
             <button
                 type="button"
-                className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                className="absolute top-1/2 z-30 right-3 px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
                 onClick={handleNext}
                 data-carousel-next
             >
