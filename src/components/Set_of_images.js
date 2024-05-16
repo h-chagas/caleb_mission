@@ -17,12 +17,14 @@ const Set_of_images = () => {
         }
     }, [set]);
 
+    const images = Array.from({ length: 13 }, (_, i) => i + 1); // Dynamically create an array for 13 images
+
     const handlePrev = () => {
-        setActiveIndex((prevIndex) => (prevIndex === 0 ? 4 : prevIndex - 1));
+        setActiveIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
     };
 
     const handleNext = () => {
-        setActiveIndex((prevIndex) => (prevIndex === 4 ? 0 : prevIndex + 1));
+        setActiveIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
 
     const setImageSetAndResetIndex = (set) => {
@@ -48,7 +50,7 @@ const Set_of_images = () => {
             </div>
             <div className="relative h-96 md:h-auto overflow-hidden">
                 {/* Render items */}
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, index) => (
+                {images.map((item, index) => (
                     <div
                         key={index}
                         className={`duration-700 ease-in-out ${activeIndex === index ? 'block' : 'hidden'}`}
@@ -64,7 +66,7 @@ const Set_of_images = () => {
             </div>
             {/* Slider indicators */}
             <div className="z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3 rtl:space-x-reverse">
-                {["manchester", "london", "peterborough", "oxford", "swindon"].map((set, index) => (
+                {["manchester", "barking", "oxford", "swindon", "vauxhall"].map((set, index) => (
                     <button
                         key={index}
                         type="button"

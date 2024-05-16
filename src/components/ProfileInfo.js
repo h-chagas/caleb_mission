@@ -18,7 +18,7 @@ const ProfileInfo = () => {
       
       </div>
       */}
-      <div className="relative mx-auto bg-gradient-to-b w-full my-10 h-1/5">
+      <div className="relative mx-auto bg-gradient-to-b w-full my-10 h-1/5 lg:max-w-lg">
         <Image src={profile} />
       </div>
     </>
