@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
@@ -55,6 +55,15 @@ const Set_of_images = () => {
                         key={index}
                         className={`duration-700 ease-in-out ${activeIndex === index ? 'block' : 'hidden'}`}
                         data-carousel-item
+                        onClick={(e) => {
+                            const clickX = e.clientX;
+                            const halfWidth = window.innerWidth / 2;
+                            if (clickX < halfWidth) {
+                                handlePrev();
+                            } else {
+                                handleNext();
+                            }
+                        }}
                     >
                         <img
                             src={`/assets/images/${imageSet}/calebs${item}.jpg`}
@@ -64,6 +73,7 @@ const Set_of_images = () => {
                     </div>
                 ))}
             </div>
+
             {/* Slider indicators */}
             <div className="z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3 rtl:space-x-reverse">
                 {["manchester", "barking", "oxford", "swindon", "vauxhall"].map((set, index) => (
@@ -78,6 +88,7 @@ const Set_of_images = () => {
                     />
                 ))}
             </div>
+            
             {/* Slider controls */}
             <button
                 type="button"
@@ -86,7 +97,7 @@ const Set_of_images = () => {
                 data-carousel-prev
             >
                 {/* Previous button icon */}
-                <FaArrowAltCircleLeft className="bg-white text-2xl" />
+                <FaChevronLeft className="text-white text-3xl bg-gray-800 p-2 rounded-full opacity-70 hover:opacity-100 transition" />
             </button>
             <button
                 type="button"
@@ -95,7 +106,7 @@ const Set_of_images = () => {
                 data-carousel-next
             >
                 {/* Next button icon */}
-                <FaArrowAltCircleRight className="bg-white text-2xl"/>
+                <FaChevronRight className="text-white text-3xl bg-gray-800 p-2 rounded-full opacity-70 hover:opacity-100 transition" />
             </button>
         </div>
     );

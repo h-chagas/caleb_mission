@@ -11,6 +11,8 @@ const images = () => {
         
 
        <Set_of_images />
+
+       
         
       </section>
       <Footer />
