@@ -7,6 +7,10 @@ const AboutMission = () => {
                 <h2>Manchester</h2>
                 <p>Details about the Manchester mission...</p>
             </section>
+            <section id="manchesterblood2024">
+                <h2>Manchester Blood Donation</h2>
+                <p>Details about the Manchester blood donation mission...</p>
+            </section>
             <section id="barking">
                 <h2>Barking</h2>
                 <p>Details about the Barking mission...</p>
