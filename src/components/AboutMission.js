@@ -11,6 +11,10 @@ const AboutMission = () => {
                 <h2>Manchester Blood Donation</h2>
                 <p>Details about the Manchester blood donation mission...</p>
             </section>
+            <section id="manchesterchristmas2024">
+                <h2>Manchester Christmas Evangelism</h2>
+                <p>Details about the Manchester Christmas Evangelism mission...</p>
+            </section>
             <section id="barking">
                 <h2>Barking</h2>
                 <p>Details about the Barking mission...</p>

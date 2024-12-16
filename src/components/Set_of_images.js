@@ -76,7 +76,7 @@ const Set_of_images = () => {
 
             {/* Slider indicators */}
             <div className="z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3 rtl:space-x-reverse">
-                {["manchester", "manchesterblood2024", "barking", "oxford", "swindon", "vauxhall"].map((set, index) => (
+                {["manchester", "manchesterblood2024", "manchesterchristmas2024", "barking", "oxford", "swindon", "vauxhall"].map((set, index) => (
                     <button
                         key={index}
                         type="button"
